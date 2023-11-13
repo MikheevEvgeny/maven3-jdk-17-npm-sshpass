@@ -1,16 +1,16 @@
 FROM bellsoft/liberica-openjdk-debian:17
 LABEL maintainer="mikheevevgeny@gmail.com" version="1.0" description="Docker image based on bellsoft/liberica-openjdk-debian:17 withv maven, npm, nodejs and sshpass"
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y sshpass nodejs build-essential
 RUN apt-get clean all
 RUN rm -rf /var/lib/apt/lists/*
 
-ARG MAVEN_VERSION=3.8.6
+ARG MAVEN_VERSION=3.9.5
 ARG USER_HOME_DIR="/root"
-ARG SHA=f790857f3b1f90ae8d16281f902c689e4f136ebe584aba45e4b1fa66c80cba826d3e0e52fdd04ed44b4c66f6d3fe3584a057c26dfcac544a60b301e6d0f91c26
+ARG SHA=4810523ba025104106567d8a15a8aa19db35068c8c8be19e30b219a1d7e83bcab96124bf86dc424b1cd3c5edba25d69ec0b31751c136f88975d15406cab3842b
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
